@@ -1,14 +1,15 @@
 import React, { Component } from "react";
 
-class EducationForm extends Component {
+class JobForm extends Component {
   constructor(props) {
     super(props);
-    let { schoolname, study, beginDate, endDate } = this.props;
+    let { company, position, beginYear, endYear, description } = this.props;
     this.state = {
-      schoolname,
-      study,
-      beginDate,
-      endDate,
+      company,
+      position,
+      beginYear,
+      endYear,
+      description,
       alert: "",
     };
   }
@@ -34,12 +35,13 @@ class EducationForm extends Component {
   };
 
   checkInputs = () => {
-    let { schoolname, study, beginDate, endDate } = this.state;
+    let { company, position, beginYear, endYear, description } = this.state;
     if (
-      schoolname.length === 0 ||
-      study.length === 0 ||
-      beginDate.length === 0 ||
-      endDate.length === 0
+      company.length === 0 ||
+      position.length === 0 ||
+      beginYear.length === 0 ||
+      endYear.length === 0 ||
+      description.length === 0
     ) {
       this.setState({
         alert: (
@@ -61,18 +63,18 @@ class EducationForm extends Component {
           <input
             onChange={this.handleChange}
             type="text"
-            name="schoolname"
-            id="school"
-            placeholder="School Name"
-            value={this.state.schoolname}
+            name="company"
+            id="company"
+            placeholder="Company Name"
+            value={this.state.company}
           ></input>
           <input
             onChange={this.handleChange}
             type="text"
-            name="study"
-            id="study"
-            placeholder="Study"
-            value={this.state.study}
+            name="position"
+            id="position"
+            placeholder="Position"
+            value={this.state.position}
           ></input>
         </div>
 
@@ -80,19 +82,29 @@ class EducationForm extends Component {
           <input
             onChange={this.handleChange}
             type="date"
-            name="beginDate"
-            id="beginDate"
-            placeholder="Beginning Date"
-            value={this.state.beginDate}
+            name="beginYear"
+            id="beginYear"
+            placeholder="Beginning Year"
+            value={this.state.beginYear}
           ></input>
           <input
             onChange={this.handleChange}
             type="date"
-            name="endDate"
-            id="endDate"
-            placeholder="Ending Date"
-            value={this.state.endDate}
+            name="endYear"
+            id="endYear"
+            placeholder="Ending Year"
+            value={this.state.endYear}
           ></input>
+        </div>
+
+        <div className="form-group">
+          <textarea
+            onChange={this.handleChange}
+            name="description"
+            id="description"
+            placeholder="Description of your job"
+            value={this.state.description}
+          ></textarea>
         </div>
         <button className="btn btn-secondary" type="submit">
           Submit
@@ -103,4 +115,4 @@ class EducationForm extends Component {
   }
 }
 
-export default EducationForm;
+export default JobForm;

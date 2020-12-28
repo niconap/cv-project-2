@@ -2,6 +2,7 @@ import React from "react";
 import Header from "./components/header";
 import General from "./components/general";
 import Educations from "./components/educations";
+import Jobs from "./components/jobs";
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
       <Header />
       <General />
       <Educations />
+      <Jobs />
     </React.Fragment>
   );
 }

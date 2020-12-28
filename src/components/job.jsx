@@ -1,17 +1,18 @@
 import React, { Component } from "react";
-import EducationForm from "./education-form";
+import JobForm from "./job-form";
 import uniqid from "uniqid";
 
-class Education extends Component {
+class Job extends Component {
   constructor(props) {
     super(props);
-    let { schoolname, study, beginDate, endDate } = this.props;
+    let { company, position, beginYear, endYear, description } = this.props;
     this.state = {
       edit: false,
-      schoolname,
-      study,
-      beginDate,
-      endDate,
+      company,
+      position,
+      beginYear,
+      endYear,
+      description,
     };
   }
 
@@ -22,26 +23,28 @@ class Education extends Component {
   };
 
   submitForm = (data) => {
-    let { schoolname, study, beginDate, endDate } = data;
+    let { company, position, beginYear, endYear, description } = data;
     this.setState({
       edit: false,
-      schoolname,
-      study,
-      beginDate,
-      endDate,
+      company,
+      position,
+      beginYear,
+      endYear,
+      description,
     });
   };
 
   render() {
-    let { schoolname, study, beginDate, endDate } = this.state;
+    let { company, position, beginYear, endYear, description } = this.state;
     if (this.state.edit === false) {
       return (
-        <div id="education">
-          <h3>{schoolname}</h3>
-          <h4>{study}</h4>
+        <div id="Job">
+          <h3>{company}</h3>
+          <h4>{position}</h4>
           <p>
-            From {beginDate} to {endDate}
+            From {beginYear} to {endYear}
           </p>
+          <p>{description}</p>
           <button
             id="delete"
             className="btn btn-danger"
@@ -61,14 +64,15 @@ class Education extends Component {
     } else if (this.state.edit === true) {
       return (
         <React.Fragment>
-          <h4>Edit Education</h4>
-          <EducationForm
+          <h4>Edit Job</h4>
+          <JobForm
             key={uniqid()}
             onSubmit={this.submitForm}
-            schoolname={schoolname}
-            study={study}
-            beginDate={beginDate}
-            endDate={endDate}
+            company={company}
+            position={position}
+            beginYear={beginYear}
+            endYear={endYear}
+            description={description}
           />
         </React.Fragment>
       );
@@ -76,4 +80,4 @@ class Education extends Component {
   }
 }
 
-export default Education;
+export default Job;

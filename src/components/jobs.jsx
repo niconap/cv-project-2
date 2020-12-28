@@ -1,31 +1,32 @@
 import React, { Component } from "react";
-import EducationForm from "./education-form";
+import JobForm from "./job-form";
 import uniqid from "uniqid";
-import Education from "./education";
+import Job from "./job";
 
-class Educations extends Component {
+class Jobs extends Component {
   state = {
     form: "",
-    educations: [],
+    jobs: [],
   };
 
   submitForm = (data) => {
-    let { schoolname, study, beginDate, endDate } = data;
+    let { company, position, beginYear, endYear, description } = data;
     let newElement = (
-      <Education
-        schoolname={schoolname}
-        study={study}
-        beginDate={beginDate}
-        endDate={endDate}
+      <Job
+        company={company}
+        position={position}
+        beginYear={beginYear}
+        endYear={endYear}
+        description={description}
         key={uniqid()}
         id={uniqid()}
-        onDelete={this.deleteEducation}
+        onDelete={this.deleteJob}
       />
     );
     console.log(newElement);
-    let array = [...this.state.educations, newElement];
+    let array = [...this.state.jobs, newElement];
     this.setState({
-      educations: array,
+      jobs: array,
       form: "",
     });
   };
@@ -33,20 +34,21 @@ class Educations extends Component {
   newForm = () => {
     this.setState({
       form: (
-        <EducationForm
+        <JobForm
           key={uniqid()}
           onSubmit={this.submitForm}
-          schoolname=""
-          study=""
-          beginDate=""
-          endDate=""
+          company=""
+          position=""
+          beginYear=""
+          endYear=""
+          description=""
         />
       ),
     });
   };
 
-  deleteEducation = (id) => {
-    let array = this.state.educations.filter((element) => {
+  deleteJob = (id) => {
+    let array = this.state.jobs.filter((element) => {
       if (element.props.id === id) {
         return false;
       } else {
@@ -54,14 +56,14 @@ class Educations extends Component {
       }
     });
     this.setState({
-      educations: array,
+      jobs: array,
     });
   };
 
   render() {
     return (
-      <div id="educations">
-        <h2>Educations</h2>
+      <div id="jobs">
+        <h2>Job experience</h2>
         <button
           className="btn btn-primary rounded-circle"
           onClick={this.newForm}
@@ -69,10 +71,10 @@ class Educations extends Component {
           +
         </button>
         {this.state.form}
-        {this.state.educations}
+        {this.state.jobs}
       </div>
     );
   }
 }
 
-export default Educations;
+export default Jobs;
