@@ -60,42 +60,51 @@ class General extends Component {
   render() {
     if (this.state.submitted === false) {
       return (
-        <div id="general">
+        <div id="general" className="mt-3 ml-3 bg-light rounded p-2">
           <h2>General Information</h2>
           <form onSubmit={this.submitForm}>
-            <div className="form-group">
+            <div className="form-group input-group">
+              <div className="input-group-prepend">
+                <span className="input-group-text">First and last name</span>
+              </div>
               <input
                 value={this.state.firstname}
                 onChange={this.handleChange}
                 type="text"
                 name="firstname"
-                placeholder="First Name"
+                className="form-control"
               ></input>
               <input
                 value={this.state.lastname}
                 onChange={this.handleChange}
                 type="text"
                 name="lastname"
-                placeholder="Last Name"
+                className="form-control"
               ></input>
             </div>
 
-            <div className="form-group">
+            <div className="form-group input-group">
+              <div className="input-group-prepend">
+                <span className="input-group-text">E-Mail Address</span>
+              </div>
               <input
                 value={this.state.email}
                 onChange={this.handleChange}
                 type="email"
                 name="email"
-                placeholder="E-Mail Address"
+                className="form-control"
               ></input>
             </div>
 
-            <div className="form-group">
+            <div className="form-group input-group">
+              <div className="input-group-prepend">
+                <span className="input-group-text">About yourself</span>
+              </div>
               <textarea
                 value={this.state.summary}
                 onChange={this.handleChange}
                 name="summary"
-                placeholder="Summary"
+                className="form-control"
               ></textarea>
             </div>
             <button className="btn btn-primary" type="submit">
@@ -108,7 +117,7 @@ class General extends Component {
     } else {
       let { firstname, lastname, email, summary } = this.state;
       return (
-        <div id="general">
+        <div id="general" className="mt-3 ml-3 bg-light rounded p-2">
           <h3>
             {firstname} {lastname}{" "}
           </h3>

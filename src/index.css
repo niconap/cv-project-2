@@ -1,0 +1,26 @@
+#root {
+  display: grid;
+  grid-template-areas:
+    "header header header"
+    "general educations educations"
+    "general jobs jobs";
+}
+
+#header {
+  grid-area: header;
+}
+
+#general {
+  grid-area: general;
+  max-width: 50%;
+}
+
+#educations {
+  grid-area: educations;
+  max-width: 75%;
+}
+
+#jobs {
+  grid-area: jobs;
+  max-width: 75%;
+}

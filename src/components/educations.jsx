@@ -60,10 +60,10 @@ class Educations extends Component {
 
   render() {
     return (
-      <div id="educations">
+      <div id="educations" className="mt-3 bg-light rounded p-2">
         <h2>Educations</h2>
         <button
-          className="btn btn-primary rounded-circle"
+          className="btn btn-primary rounded-circle mb-3"
           onClick={this.newForm}
         >
           +

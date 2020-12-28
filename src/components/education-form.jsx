@@ -43,7 +43,7 @@ class EducationForm extends Component {
     ) {
       this.setState({
         alert: (
-          <p className="badge badge-warning">
+          <p className="badge badge-warning ml-3">
             Please enter something in all inputs!
           </p>
         ),
@@ -57,13 +57,16 @@ class EducationForm extends Component {
   render() {
     return (
       <form onSubmit={this.submitForm}>
-        <div className="form-group">
+        <div className="form-group input-group">
+          <div className="input-group-prepend">
+            <span className="input-group-text">School and study</span>
+          </div>
           <input
             onChange={this.handleChange}
             type="text"
             name="schoolname"
             id="school"
-            placeholder="School Name"
+            className="form-control"
             value={this.state.schoolname}
           ></input>
           <input
@@ -71,18 +74,21 @@ class EducationForm extends Component {
             type="text"
             name="study"
             id="study"
-            placeholder="Study"
+            className="form-control"
             value={this.state.study}
           ></input>
         </div>
 
-        <div className="form-group">
+        <div className="form-group input-group">
+          <div className="input-group-prepend">
+            <span className="input-group-text">Starting- and endingdate</span>
+          </div>
           <input
             onChange={this.handleChange}
             type="date"
             name="beginDate"
             id="beginDate"
-            placeholder="Beginning Date"
+            className="form-control"
             value={this.state.beginDate}
           ></input>
           <input
@@ -90,7 +96,7 @@ class EducationForm extends Component {
             type="date"
             name="endDate"
             id="endDate"
-            placeholder="Ending Date"
+            className="form-control"
             value={this.state.endDate}
           ></input>
         </div>

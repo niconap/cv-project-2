@@ -45,7 +45,7 @@ class JobForm extends Component {
     ) {
       this.setState({
         alert: (
-          <p className="badge badge-warning">
+          <p className="badge badge-warning ml-3">
             Please enter something in all inputs!
           </p>
         ),
@@ -59,13 +59,16 @@ class JobForm extends Component {
   render() {
     return (
       <form onSubmit={this.submitForm}>
-        <div className="form-group">
+        <div className="form-group input-group">
+          <div className="input-group-prepend">
+            <span className="input-group-text">Company name and position</span>
+          </div>
           <input
             onChange={this.handleChange}
             type="text"
             name="company"
             id="company"
-            placeholder="Company Name"
+            className="form-control"
             value={this.state.company}
           ></input>
           <input
@@ -73,36 +76,46 @@ class JobForm extends Component {
             type="text"
             name="position"
             id="position"
-            placeholder="Position"
+            className="form-control"
             value={this.state.position}
           ></input>
         </div>
 
-        <div className="form-group">
+        <div className="form-group input-group">
+          <div className="input-group-prepend">
+            <span className="input-group-text">Starting- and endingyear</span>
+          </div>
           <input
             onChange={this.handleChange}
-            type="date"
+            type="number"
+            min="1900"
+            max="2099"
             name="beginYear"
             id="beginYear"
-            placeholder="Beginning Year"
+            className="form-control"
             value={this.state.beginYear}
           ></input>
           <input
             onChange={this.handleChange}
-            type="date"
+            type="number"
+            min="1900"
+            max="2099"
             name="endYear"
             id="endYear"
-            placeholder="Ending Year"
+            className="form-control"
             value={this.state.endYear}
           ></input>
         </div>
 
-        <div className="form-group">
+        <div className="form-group input-group">
+          <div className="input-group-prepend">
+            <span className="input-group-text">Description</span>
+          </div>
           <textarea
             onChange={this.handleChange}
             name="description"
             id="description"
-            placeholder="Description of your job"
+            className="form-control"
             value={this.state.description}
           ></textarea>
         </div>

@@ -38,7 +38,7 @@ class Job extends Component {
     let { company, position, beginYear, endYear, description } = this.state;
     if (this.state.edit === false) {
       return (
-        <div id="Job">
+        <div id="job">
           <h3>{company}</h3>
           <h4>{position}</h4>
           <p>

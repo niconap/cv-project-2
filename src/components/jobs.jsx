@@ -62,10 +62,10 @@ class Jobs extends Component {
 
   render() {
     return (
-      <div id="jobs">
+      <div id="jobs" className="mt-3 bg-light rounded p-2">
         <h2>Job experience</h2>
         <button
-          className="btn btn-primary rounded-circle"
+          className="btn btn-primary rounded-circle mb-3"
           onClick={this.newForm}
         >
           +
