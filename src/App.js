@@ -1,14 +1,14 @@
 import React from "react";
 import Header from "./components/header";
 import General from "./components/general";
-import Education from "./components/education";
+import Educations from "./components/educations";
 
 function App() {
   return (
     <React.Fragment>
       <Header />
       <General />
-      <Education />
+      <Educations />
     </React.Fragment>
   );
 }

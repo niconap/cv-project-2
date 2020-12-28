@@ -3,11 +3,12 @@ import React, { Component } from "react";
 class EducationForm extends Component {
   constructor(props) {
     super(props);
+    let { schoolname, study, beginDate, endDate } = this.props;
     this.state = {
-      schoolname: "",
-      study: "",
-      beginDate: "",
-      endDate: "",
+      schoolname,
+      study,
+      beginDate,
+      endDate,
     };
   }
 
@@ -35,6 +36,7 @@ class EducationForm extends Component {
           name="schoolname"
           id="school"
           placeholder="School Name"
+          value={this.state.schoolname}
         ></input>
         <input
           onChange={this.handleChange}
@@ -42,6 +44,7 @@ class EducationForm extends Component {
           name="study"
           id="study"
           placeholder="Study"
+          value={this.state.study}
         ></input>
         <input
           onChange={this.handleChange}
@@ -49,6 +52,7 @@ class EducationForm extends Component {
           name="beginDate"
           id="beginDate"
           placeholder="Beginning Date"
+          value={this.state.beginDate}
         ></input>
         <input
           onChange={this.handleChange}
@@ -56,6 +60,7 @@ class EducationForm extends Component {
           name="endDate"
           id="endDate"
           placeholder="Ending Date"
+          value={this.state.endDate}
         ></input>
         <button type="submit">Submit</button>
       </form>

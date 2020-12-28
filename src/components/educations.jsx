@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import EducationForm from "./education-form";
 import uniqid from "uniqid";
+import Education from "./education";
 
-class Education extends Component {
+class Educations extends Component {
   state = {
     form: "",
     educations: [],
@@ -11,14 +12,13 @@ class Education extends Component {
   submitForm = (data) => {
     let { schoolname, study, beginDate, endDate } = data;
     let newElement = (
-      <div id="education" key={uniqid()}>
-        <h3>{schoolname}</h3>
-        <h4>{study}</h4>
-        <p>
-          From {beginDate} to {endDate}
-        </p>
-        <button id="delete">Delete</button>
-      </div>
+      <Education
+        schoolname={schoolname}
+        study={study}
+        beginDate={beginDate}
+        endDate={endDate}
+        key={uniqid()}
+      />
     );
     let array = [...this.state.educations, newElement];
     this.setState({
@@ -29,7 +29,16 @@ class Education extends Component {
 
   newForm = () => {
     this.setState({
-      form: <EducationForm key={uniqid()} onSubmit={this.submitForm} />,
+      form: (
+        <EducationForm
+          key={uniqid()}
+          onSubmit={this.submitForm}
+          schoolname=""
+          study=""
+          beginDate=""
+          endDate=""
+        />
+      ),
     });
   };
 
@@ -45,4 +54,4 @@ class Education extends Component {
   }
 }
 
-export default Education;
+export default Educations;
