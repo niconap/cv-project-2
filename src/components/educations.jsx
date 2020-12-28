@@ -18,8 +18,11 @@ class Educations extends Component {
         beginDate={beginDate}
         endDate={endDate}
         key={uniqid()}
+        id={uniqid()}
+        onDelete={this.deleteEducation}
       />
     );
+    console.log(newElement);
     let array = [...this.state.educations, newElement];
     this.setState({
       educations: array,
@@ -39,6 +42,19 @@ class Educations extends Component {
           endDate=""
         />
       ),
+    });
+  };
+
+  deleteEducation = (id) => {
+    let array = this.state.educations.filter((element) => {
+      if (element.props.id === id) {
+        return false;
+      } else {
+        return true;
+      }
+    });
+    this.setState({
+      educations: array,
     });
   };
 

@@ -42,7 +42,12 @@ class Education extends Component {
           <p>
             From {beginDate} to {endDate}
           </p>
-          <button id="delete">Delete</button>
+          <button
+            id="delete"
+            onClick={() => this.props.onDelete(this.props.id)}
+          >
+            Delete
+          </button>
           <button id="edit" onClick={this.startEdit}>
             Edit
           </button>
